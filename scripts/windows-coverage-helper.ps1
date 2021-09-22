@@ -22,16 +22,16 @@ $command_fragment = $arguments -Join " -object "
 # Finally, run the command to create the coverage reports (calls llvm-cov's "report" command
 # internally: llvm-cov report)
 cargo cov -- report `
-  $command_fragment `
-  -instr-profile="$profile_data_file" `
-  -ignore-filename-regex="$coverage_ignore_regex"
+  "$command_fragment" `
+  -instr-profile "$profile_data_file" `
+  -ignore-filename-regex "$coverage_ignore_regex"
 
 # Additionally, we will create the HTML-based mini-site with in-depth coverage information
 cargo cov -- show `
   -Xdemangler=rustfilt `
-  $command_fragment `
-  -instr-profile="$profile_data_file" `
-  -ignore-filename-regex="$coverage_ignore_regex" `
+  "$command_fragment" `
+  -instr-profile "$profile_data_file" `
+  -ignore-filename-regex "$coverage_ignore_regex" `
   -show-line-counts-or-regions `
   -format html `
-  -output-dir $html_output_directory
+  -output-dir "$html_output_directory"
