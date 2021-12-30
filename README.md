@@ -18,7 +18,7 @@ This is a template repository. This template comes with support for the followin
   * [llvm-profdata](https://llvm.org/docs/CommandGuide/llvm-profdata.html)
   * [llvm-cov](https://llvm.org/docs/CommandGuide/llvm-cov.html)
   * [cargo-bintools](https://github.com/rust-embedded/cargo-binutils)
-* Execution analysis/evaluation of "Undefined Behavior" via [Miri](https://github.com/rust-lang/miri)
+* Execution analysis of Undefined Behavior via [Miri](https://github.com/rust-lang/miri)
 * Facilitation/orchestration of *all the above* via [cargo-make](https://github.com/sagiegurari/cargo-make)
 (see [CONTRIBUTING.md](CONTRIBUTING.md) for details)
 
