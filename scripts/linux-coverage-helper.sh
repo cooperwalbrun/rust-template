@@ -7,7 +7,7 @@ HTML_OUTPUT_DIRECTORY="./coverage/"
 PROFILE_DATA_FILE="./coverage.profdata"
 COVERAGE_IGNORE_REGEX='\.cargo.registry|\.rustup' # Matches .cargo/registry and .rustup/
 
-if ![ -x "$(command -v jq)" ]; then
+if ! [ -x "$(command -v jq)" ]; then
   echo "jq is not installed. Please install it in order to proceed (see https://stedolan.github.io/jq/download/)."
   exit 1
 fi
