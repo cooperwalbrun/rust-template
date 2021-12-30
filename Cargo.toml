@@ -1,9 +1,9 @@
 [package]
-name = "rust-template"
+name = "your-package-name"
 edition = "2021"
 version = "0.1.0"
-authors = ["cooperwalbrun"]
-description = "A template repository for creating new Rust projects."
+authors = ["your name or pseudonym"]
+description = "A short description of your project."
 documentation = "https://github.com/cooperwalbrun/rust-template/blob/master/README.md"
 homepage = "https://github.com/cooperwalbrun/rust-template"
 repository = "https://github.com/cooperwalbrun/rust-template"
@@ -14,7 +14,8 @@ exclude = ["/.github/*", "/Makefile.toml", "/clippy.toml", "/rustfmt.toml"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-
+# If this is a library, it is recommended to use https://github.com/dtolnay/thiserror
+# If this is NOT a library (i.e. an application), it is recommended to use https://github.com/dtolnay/anyhow
 
 [dev-dependencies]
 mockito = "0.7.0"
