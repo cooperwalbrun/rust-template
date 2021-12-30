@@ -1,17 +1,19 @@
 # Contributing to YOUR PROJECT NAME HERE
 
 1. [Development Workspace Setup](#development-workspace-setup)
-3. [Commands](#commands)
-4. [Formatting and Linting Code](#formatting-and-linting-code)
+2. [Commands](#commands)
+3. [Formatting and Linting Code](#formatting-and-linting-code)
+4. [Code Policy](#code-policy)
 
 ## Development Workspace Setup
 
-This project currently depends on the Rust `nightly` toolchain in order to access the latest
-features of dependencies (such as `rustfmt`) and the Rust compiler (such as
-[source-based-code-coverage](https://doc.rust-lang.org/nightly/unstable-book/compiler-flags/source-based-code-coverage.html)).
+This project currently depends on the Rust `nightly` toolchain in order to access certain features
+of the Rust compiler (such as
+[-Zinstrument-coverage](https://doc.rust-lang.org/nightly/unstable-book/compiler-flags/instrument-coverage.html))
+and [Miri](https://github.com/rust-lang/miri).
 
 The main facility used for interacting with this project's lifecycle (build/test/format/lint) is
-[cargo-make](https://sagiegurari.github.io/cargo-make/). Therefore, this is the only dependency you
+[cargo-make](https://sagiegurari.github.io/cargo-make). Therefore, this is the only dependency you
 need to install on your machine:
 
 ```bash
@@ -19,17 +21,24 @@ cargo install cargo-make
 ```
 
 If you are using a Linux-based machine, you will also need to install
-[jq](https://stedolan.github.io/jq/download/) in order to run the code coverage command(s) mentioned
+[jq](https://stedolan.github.io/jq/download) in order to run the code coverage command(s) mentioned
 below.
+
+Lastly, be aware that the first time you run either of the `miri-run` or `miri-test` commands (see
+below), you will be prompted in your terminal to install some additional dependencies.
 
 ## Commands
 
 With `cargo-make`, all of this project's commands will become available to you:
 
-```properties
+```bash
 cargo make clean         # Clean up temporary files
 cargo make build         # Lint and build the project
+cargo make run           # Run the application
 cargo make test          # Run all unit tests
+cargo make miri-clean    # Clean up Miri-related temporary files
+cargo make miri-run      # Run the application and analyze it with Miri
+cargo make miri-test     # Run all unit tests and analyze them with Miri
 cargo make test-coverage # Run all unit tests and write a code coverage report to STDOUT
 cargo make format        # Run rustfmt on every applicable file in the project
 cargo make lint          # Run rust-clippy on every applicable file in the project
@@ -43,9 +52,6 @@ cargo make lint-watch    # Same as above, except execute indefinitely as a watch
 commands. Between this and what is defined in `Cargo.toml`, you should never need to issue a
 `cargo install` command unless you are installing new dependencies.
 
-Be aware that the `cargo make` commands above will use the `development` profile by default (i.e.
-the build will not be production-optimized).
-
 ## Formatting and Linting Code
 
 This project uses [rustfmt](https://github.com/rust-lang/rustfmt) to handle formatting, and
@@ -57,3 +63,9 @@ contributions are expected to be checked using the settings in [clippy.toml](cli
 
 >Note: `rustfmt` and `rust-clippy` each have many built-in defaults that will be deferred to in the
 >absence of a corresponding rule in `rustfmt.toml`/`clippy.toml`.
+
+## Code Policy
+
+Code contributed to this project should follow the
+[Rust API Guidelines](https://rust-lang.github.io/api-guidelines/checklist.html) as much as
+possible (even if this project is an application instead of a library).
