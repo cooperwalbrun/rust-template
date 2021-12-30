@@ -40,7 +40,7 @@ cargo cov -- show \
   -Xdemangler=rustfilt \
   "$COMMAND_FRAGMENT" \
   -instr-profile "$PROFILE_DATA_FILE" \
-  -ignore-filename-regex "$COVERAGE_IGNORE_REGEX"
+  -ignore-filename-regex "$COVERAGE_IGNORE_REGEX" \
   -show-line-counts-or-regions \
   -format html \
   -output-dir "$HTML_OUTPUT_DIRECTORY"

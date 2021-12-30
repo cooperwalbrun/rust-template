@@ -1,4 +1,4 @@
-# YOUR PROJECT NAME HERE
+# YOUR PROJECT NAME HERE ![master](https://github.com/cooperwalbrun/rust-template/workflows/master/badge.svg)
 
 1. [Overview](#overview)
 2. [Contributing](#contributing)
