@@ -20,10 +20,6 @@ need to install on your machine:
 cargo install cargo-make
 ```
 
-If you are using a Linux-based machine, you will also need to install
-[jq](https://stedolan.github.io/jq/download) in order to run the code coverage command(s) mentioned
-below.
-
 Lastly, be aware that the first time you run either of the `miri-run` or `miri-test` commands (see
 below), you will be prompted in your terminal to install some additional dependencies.
 
