@@ -15,17 +15,17 @@ ARTIFACTS=$( \
     | jq -r "select(.profile.test == true) | .filenames[]" \
     | grep -v dSYM - \
 )
-COVERAGE_ANALYZED_ARTIFACTS=""
+EXECUTABLES=""
 for ARTIFACT in $ARTIFACTS; do
   # We trim the artifact in order to deal with spaces that appear in the filenames (due to jq?)
   SANITIZED_ARTIFACT=${ARTIFACT//[$'\t\r\n']}
   if [[ -x "$SANITIZED_ARTIFACT" ]]; then # Only include executable artifacts
-    COVERAGE_ANALYZED_ARTIFACTS="$COVERAGE_ANALYZED_ARTIFACTS -object $SANITIZED_ARTIFACT"
+    EXECUTABLES="$EXECUTABLES -object $SANITIZED_ARTIFACT"
   fi
 done
 # Below strips off the leading " -object " because llvm-cov expects the first file to NOT be
 # specified with -object
-COVERAGE_ANALYZED_ARTIFACTS=${COVERAGE_ANALYZED_ARTIFACTS:8}
+EXECUTABLES=${EXECUTABLES:8}
 
 # Finally, run the command to create the coverage reports (calls llvm-cov's "report" command
 # internally: llvm-cov report)

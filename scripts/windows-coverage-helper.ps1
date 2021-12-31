@@ -12,22 +12,22 @@ $json = cargo test --tests --no-run --message-format=json | ConvertFrom-Json
 
 # Extract the names of the executable(s) that we instrumented for code coverage analysis
 $artifacts = $json | Where-Object { $_.profile.test -eq $TRUE }
-$coverage_analyzed_artifacts=@()
+$executables=@()
 ForEach ($artifact in $artifacts) {
   ForEach ($filename in $artifact.filenames) {
     if ([IO.Path]::GetExtension($filename) -eq ".exe") { # Only include executable artifacts
-      $coverage_analyzed_artifacts += "$filename"
+      $executables += "$filename"
     }
   }
 }
-$coverage_analyzed_artifacts = $coverage_analyzed_artifacts -Join " -object "
+$executables = $executables -Join " -object "
 
 # Finally, run the command to create the coverage reports (calls llvm-cov's "report" command
 # internally: llvm-cov report)
 cargo cov -- report `
   -ignore-filename-regex "$coverage_ignore_regex" `
   -instr-profile "$profile_data_file" `
-  $coverage_analyzed_artifacts
+  $executables
 
 # Additionally, we will create the HTML-based mini-site with in-depth coverage information
 cargo cov -- show `
@@ -37,4 +37,4 @@ cargo cov -- show `
   -format html `
   -output-dir "$html_output_directory" `
   -instr-profile "$profile_data_file" `
-  $coverage_analyzed_artifacts
+  $executables
