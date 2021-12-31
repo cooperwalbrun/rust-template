@@ -17,8 +17,10 @@ ARTIFACTS=$( \
 )
 COVERAGE_ANALYZED_ARTIFACTS=""
 for ARTIFACT in $ARTIFACTS; do
-  if [[ -x $ARTIFACT ]]; then # Only include executable artifacts
-    COVERAGE_ANALYZED_ARTIFACTS="$COVERAGE_ANALYZED_ARTIFACTS -object ${ARTIFACT//[$'\t\r\n']}"
+  # We trim the artifact in order to deal with spaces that appear in the filenames (due to jq?)
+  SANITIZED_ARTIFACT=${ARTIFACT//[$'\t\r\n']}
+  if [[ -x "$SANITIZED_ARTIFACT" ]]; then # Only include executable artifacts
+    COVERAGE_ANALYZED_ARTIFACTS="$COVERAGE_ANALYZED_ARTIFACTS -object $SANITIZED_ARTIFACT"
   fi
 done
 # Below strips off the leading " -object " because llvm-cov expects the first file to NOT be
@@ -28,8 +30,8 @@ COVERAGE_ANALYZED_ARTIFACTS=${COVERAGE_ANALYZED_ARTIFACTS:8}
 # Finally, run the command to create the coverage reports (calls llvm-cov's "report" command
 # internally: llvm-cov report)
 cargo cov -- report \
-  -instr-profile "$PROFILE_DATA_FILE" \
   -ignore-filename-regex "$COVERAGE_IGNORE_REGEX" \
+  -instr-profile "$PROFILE_DATA_FILE" \
   $EXECUTABLES
 
 # Additionally, we will create the HTML-based mini-site with in-depth coverage information
