@@ -7,40 +7,39 @@ HTML_OUTPUT_DIRECTORY="./coverage/"
 PROFILE_DATA_FILE="./coverage.profdata"
 COVERAGE_IGNORE_REGEX='\.cargo.registry|\.rustup' # Matches .cargo/registry and .rustup/
 
-if ! [ -x "$(command -v jq)" ]; then
-  echo "jq is not installed. Please install it in order to proceed (see https://stedolan.github.io/jq/download/)."
-  exit 1
-fi
-
-cargo install rustfilt # There was no elegant way to include this as an install_crate in Makefile.toml
-
 # Generate log messages via Cargo and then parse them to extract the instrumented executables' paths
 # Note that this command will not actually run any tests
-EXECUTABLES=$( \
-  for path in $( \
-    cargo test --tests --no-run --message-format=json \
-      | jq -r "select(.profile.test == true) | .executable" \
-      | grep -v dSYM - \
-  ); do printf "\"%s\"" $path; done \
+ARTIFACTS=$( \
+  RUSTFLAGS="-Zinstrument-coverage" \
+  cargo test --tests --no-run --message-format=json \
+    | jq -r "select(.profile.test == true) | .filenames[]" \
+    | grep -v dSYM - \
 )
-
-# Format the executable paths in a way that cooperates with llvm-cov
-function join_by { local d=$1; shift; local f=$1; shift; printf "%s" "$f" "${@/#/$d}"; }
-COMMAND_FRAGMENT=$(join_by " -object " $EXECUTABLES)
+EXECUTABLES=""
+for ARTIFACT in $ARTIFACTS; do
+  # We trim the artifact in order to deal with spaces that appear in the filenames (due to jq?)
+  SANITIZED_ARTIFACT=${ARTIFACT//[$'\t\r\n']}
+  if [[ -x "$SANITIZED_ARTIFACT" ]]; then # Only include executable artifacts
+    EXECUTABLES="$EXECUTABLES -object $SANITIZED_ARTIFACT"
+  fi
+done
+# Below strips off the leading " -object " because llvm-cov expects the first file to NOT be
+# specified with -object
+EXECUTABLES=${EXECUTABLES:8}
 
 # Finally, run the command to create the coverage reports (calls llvm-cov's "report" command
 # internally: llvm-cov report)
 cargo cov -- report \
-  "$COMMAND_FRAGMENT" \
+  -ignore-filename-regex "$COVERAGE_IGNORE_REGEX" \
   -instr-profile "$PROFILE_DATA_FILE" \
-  -ignore-filename-regex "$COVERAGE_IGNORE_REGEX"
+  $EXECUTABLES
 
 # Additionally, we will create the HTML-based mini-site with in-depth coverage information
 cargo cov -- show \
   -Xdemangler=rustfilt \
-  "$COMMAND_FRAGMENT" \
-  -instr-profile "$PROFILE_DATA_FILE" \
-  -ignore-filename-regex "$COVERAGE_IGNORE_REGEX"
+  -ignore-filename-regex "$COVERAGE_IGNORE_REGEX" \
   -show-line-counts-or-regions \
   -format html \
-  -output-dir "$HTML_OUTPUT_DIRECTORY"
+  -output-dir "$HTML_OUTPUT_DIRECTORY" \
+  -instr-profile "$PROFILE_DATA_FILE" \
+  $EXECUTABLES
