@@ -108,7 +108,7 @@ command = "cargo"
 args = ["clean"]
 
 [tasks.miri-compatible-build]
-description = "Fetch the Miri Rustup component."
+description = "Fetch the Miri Rustup component and create a Miri-compatible build."
 install_crate = { rustup_component_name = "miri" }
 env = { CARGO_TARGET_DIR = "./target-miri" }
 command = "cargo"
