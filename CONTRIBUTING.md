@@ -32,10 +32,10 @@ cargo make clean         # Clean up temporary files
 cargo make build         # Lint and build the project
 cargo make run           # Run the application
 cargo make test          # Run all unit tests
+cargo make test-coverage # Run all unit tests and write a code coverage report to STDOUT
 cargo make miri-clean    # Clean up Miri-related temporary files
 cargo make miri-run      # Run the application and analyze it with Miri
 cargo make miri-test     # Run all unit tests and analyze them with Miri
-cargo make test-coverage # Run all unit tests and write a code coverage report to STDOUT
 cargo make format        # Run rustfmt on every applicable file in the project
 cargo make lint          # Run rust-clippy on every applicable file in the project
 cargo make lint-watch    # Same as above, except execute indefinitely as a watcher (re-lint whenever files change)
@@ -52,7 +52,7 @@ commands. Between this and what is defined in `Cargo.toml`, you should never nee
 
 This project uses [rustfmt](https://github.com/rust-lang/rustfmt) to handle formatting, and
 contributions to its code are expected to be formatted with `rustfmt` (within reason) using the
-settings in [rustfmt.toml](rustfmt.toml). This can be automated in many popular IDEs and editors.
+settings in [rustfmt.toml](rustfmt.toml).
 
 This project uses [rust-clippy](https://github.com/rust-lang/rust-clippy) to handle linting, and
 contributions are expected to be checked using the settings in [clippy.toml](clippy.toml).
