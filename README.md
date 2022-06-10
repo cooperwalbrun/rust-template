@@ -1,5 +1,9 @@
 # YOUR PROJECT NAME HERE ![master](https://github.com/cooperwalbrun/rust-template/workflows/master/badge.svg)
 
+>Note: if you just forked/cloned this project to create a new Rust project for yourself, be sure to
+>remove `Cargo.lock` from the `.gitignore` if this is an end-user executable/application. If your
+>project is meant to be a library, leave `Cargo.lock` in the `.gitignore`.
+
 1. [Overview](#overview)
 2. [Contributing](#contributing)
 
@@ -12,7 +16,7 @@ This is a template repository. This template comes with support for the followin
 * Linting via [rust-clippy](https://github.com/rust-lang/rust-clippy)
 * Formatting via [rustfmt](https://github.com/rust-lang/rustfmt)
 * Code coverage and "pretty" code coverage reporting via
-[a clever combination](https://doc.rust-lang.org/nightly/unstable-book/compiler-flags/instrument-coverage.html#test-coverage) of the following:
+[a clever combination](https://doc.rust-lang.org/rustc/instrument-coverage.html) of the following:
   * [rustfilt](https://github.com/luser/rustfilt)
   * [llvm-tools-preview](https://rust-lang.github.io/rustup/concepts/components.html)
   * [llvm-profdata](https://llvm.org/docs/CommandGuide/llvm-profdata.html)

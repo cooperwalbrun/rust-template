@@ -7,10 +7,8 @@
 
 ## Development Workspace Setup
 
-This project currently depends on the Rust `nightly` toolchain in order to access certain features
-of the Rust compiler (such as
-[-Zinstrument-coverage](https://doc.rust-lang.org/nightly/unstable-book/compiler-flags/instrument-coverage.html))
-and [Miri](https://github.com/rust-lang/miri).
+This project currently depends on the Rust `nightly` toolchain in order to utilize
+[Miri](https://github.com/rust-lang/miri).
 
 The main facility used for interacting with this project's lifecycle (build/test/format/lint) is
 [cargo-make](https://sagiegurari.github.io/cargo-make). Therefore, this is the only dependency you

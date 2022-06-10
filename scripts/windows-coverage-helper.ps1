@@ -7,7 +7,7 @@ $coverage_ignore_regex = '\.cargo.registry|\.rustup' # Matches .cargo/registry a
 
 # Generate log messages via Cargo that we can parse to extract the executables' paths
 # Note that this command will not actually run any tests
-$Env:RUSTFLAGS = "-Zinstrument-coverage"
+$Env:RUSTFLAGS = "-Cinstrument-coverage"
 $json = cargo test --tests --no-run --message-format=json | ConvertFrom-Json
 
 # Extract the names of the executable(s) that we instrumented for code coverage analysis

@@ -10,7 +10,7 @@ COVERAGE_IGNORE_REGEX='\.cargo.registry|\.rustup' # Matches .cargo/registry and 
 # Generate log messages via Cargo and then parse them to extract the instrumented executables' paths
 # Note that this command will not actually run any tests
 ARTIFACTS=$( \
-  RUSTFLAGS="-Zinstrument-coverage" \
+  RUSTFLAGS="-Cinstrument-coverage" \
   cargo test --tests --no-run --message-format=json \
     | jq -r "select(.profile.test == true) | .filenames[]" \
     | grep -v dSYM - \
