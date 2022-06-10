@@ -30,7 +30,7 @@ args = ["clean"]
 
 [tasks.build]
 description = "Compile the source code and create testable artifacts."
-env = { RUSTFLAGS = "-Zinstrument-coverage" }
+env = { RUSTFLAGS = "-Cinstrument-coverage" }
 command = "cargo"
 args = ["build"]
 dependencies = ["lint"]
