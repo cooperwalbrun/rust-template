@@ -43,8 +43,7 @@ commands. Between this and what is defined in `Cargo.toml`, you should never nee
 `cargo install` command unless you are installing new dependencies.
 
 Lastly, be aware that the first time you run either of the `miri-run` or `miri-test` commands, you
-will be prompted in your terminal to install some additional dependencies. This prompt will require
-user input to proceed.
+will be prompted in your terminal to install some additional dependencies.
 
 ## Formatting and Linting Code
 

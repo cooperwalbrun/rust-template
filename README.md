@@ -14,7 +14,7 @@
    for more information.
 2. Rename `src/main.rs` to `src/lib.rs` (and remove the `main` function) if your project is NOT an
    executable (i.e. it is a library). Likewise, be sure to remove all mentions of `run` command(s)
-   from the `CONTRIBUTING.md`.
+   from the `CONTRIBUTING.md` and `Makefile.toml` files.
 3. Update other files according to your project's needs (e.g. `Cargo.toml`, `README.md`,
    `CODEOWNERS`, etc).
 
