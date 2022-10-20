@@ -17,6 +17,7 @@ jobs:
           toolchain: stable
           default: true
           override: true
+          profile: minimal
       - name: Install cargo-make
         uses: baptiste0928/cargo-install@v1
         with:
