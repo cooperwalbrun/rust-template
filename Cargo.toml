@@ -1,12 +1,14 @@
 [package]
-name = "your-package-name"
+name = "rust-template"
 edition = "2021"
 version = "0.1.0"
-authors = ["your name or pseudonym"]
+rust-version = "1.64"
+authors = ["Cooper Walbrun <mail@cooperwalbrun.io>"]
 description = "A short description of your project."
 documentation = "https://github.com/cooperwalbrun/rust-template/blob/master/README.md"
 homepage = "https://github.com/cooperwalbrun/rust-template"
 repository = "https://github.com/cooperwalbrun/rust-template"
+keywords = ["cargo", "make", "template"]
 readme = "README.md"
 license-file = "LICENSE"
 exclude = ["/.github/*", "/Makefile.toml", "/clippy.toml", "/rustfmt.toml"]
