@@ -29,7 +29,7 @@ command = "cargo"
 args = ["clean"]
 
 [tasks.build]
-description = "Compile the source code and create testable artifacts."
+description = "Compile the source code."
 command = "cargo"
 args = ["build"]
 dependencies = ["lint"]
@@ -77,12 +77,12 @@ env = { CARGO_TARGET_DIR = "./target-miri" }
 command = "cargo"
 args = ["clean"]
 
-[tasks.miri-compatible-build]
-description = "Fetch the Miri Rustup component and create a Miri-compatible build."
+[tasks.miri-build]
+description = "Fetch the Miri Rustup component and compile the source code for Miri analysis."
 install_crate = { rustup_component_name = "miri" }
 env = { CARGO_TARGET_DIR = "./target-miri" }
 command = "cargo"
-args = ["build"]
+args = ["lint", "build"]
 
 [tasks.miri-run]
 description = "Run the application and analyze it with Miri."
@@ -90,7 +90,7 @@ description = "Run the application and analyze it with Miri."
 env = { CARGO_TARGET_DIR = "./target-miri", RUST_BACKTRACE = 1, MIRIFLAGS = "-Zmiri-disable-isolation" }
 command = "cargo"
 args = ["miri", "run"]
-dependencies = ["miri-compatible-build"]
+dependencies = ["miri-build"]
 
 [tasks.miri-test]
 description = "Run all unit tests and analyze them with Miri."
@@ -98,4 +98,4 @@ description = "Run all unit tests and analyze them with Miri."
 env = { CARGO_TARGET_DIR = "./target-miri", RUST_BACKTRACE = 1, MIRIFLAGS = "-Zmiri-disable-isolation" }
 command = "cargo"
 args = ["miri", "test", "--tests"]
-dependencies = ["miri-compatible-build"]
+dependencies = ["miri-build"]

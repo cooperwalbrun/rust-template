@@ -17,9 +17,11 @@ jobs:
           default: true
           override: true
       - name: Install cargo-make
-        run: cargo install --force cargo-make
-      - name: Run the application
-        run: cargo make run
+        uses: baptiste0928/cargo-install@v1
+        with:
+          crate: cargo-make
+      - name: Unit test with undefined behavior analysis
+        run: cargo make miri-test
       - name: Unit test with code coverage analysis
         run: cargo make test-coverage-ci
       - name: Upload test coverage report to Codecov

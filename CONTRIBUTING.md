@@ -18,9 +18,6 @@ need to install on your machine:
 cargo install cargo-make
 ```
 
-Lastly, be aware that the first time you run either of the `miri-run` or `miri-test` commands (see
-below), you will be prompted in your terminal to install some additional dependencies.
-
 ## Commands
 
 With `cargo-make`, all of this project's commands will become available to you:
@@ -33,6 +30,7 @@ cargo make test             # Run all unit tests
 cargo make test-coverage    # Run all unit tests and write a code coverage report to STDOUT
 cargo make test-coverage-ci # Run all unit tests and write a code coverage report to a text file in LCOV format
 cargo make miri-clean       # Clean up Miri-related temporary files
+cargo make miri-build       # Lint and build the project for Miri analysis
 cargo make miri-run         # Run the application and analyze it with Miri
 cargo make miri-test        # Run all unit tests and analyze them with Miri
 cargo make format           # Run rustfmt on every applicable file in the project
@@ -40,12 +38,13 @@ cargo make lint             # Run rust-clippy on every applicable file in the pr
 cargo make lint-watch       # Same as above, except execute indefinitely as a watcher (re-lint whenever files change)
 ```
 
->Note: the `test-coverage` command will also produce an in-depth HTML-based report which can be
->viewed by opening the `/coverage/index.html` file in a browser.
-
 `cargo-make` will automatically fetch crates and toolchain components when needed as you run these
 commands. Between this and what is defined in `Cargo.toml`, you should never need to issue a
 `cargo install` command unless you are installing new dependencies.
+
+Lastly, be aware that the first time you run either of the `miri-run` or `miri-test` commands, you
+will be prompted in your terminal to install some additional dependencies. This prompt will require
+user input to proceed.
 
 ## Formatting and Linting Code
 
@@ -63,4 +62,4 @@ contributions are expected to be checked using the settings in [clippy.toml](cli
 
 Code contributed to this project should follow the
 [Rust API Guidelines](https://rust-lang.github.io/api-guidelines/checklist.html) as much as
-possible (even if this project is an application instead of a library).
+possible (even if this project is an application rather than a library).
