@@ -9,12 +9,13 @@
 >Did you just clone this repository? Here is a checklist of things you should change before you get
 >started developing!
 
-1. Remove the `Cargo.lock` line from the `.gitignore` if your project will be an executable. See
+1. Delete the `Cargo.lock` file and add it to the the `.gitignore` file if your project will NOT be
+   an executable binary. See
    [the Rust FAQs](https://doc.rust-lang.org/cargo/faq.html#why-do-binaries-have-cargolock-in-version-control-but-not-libraries)
    for more information.
-2. Rename `src/main.rs` to `src/lib.rs` (and remove the `main` function) if your project is NOT an
-   executable (i.e. it is a library). Likewise, be sure to remove all mentions of `run` command(s)
-   from the `CONTRIBUTING.md` and `Makefile.toml` files.
+2. Rename `src/main.rs` to `src/lib.rs` (and remove the `main` function) if your project will NOT be
+   an executable binary. Likewise, be sure to remove all mentions of `run` command(s) from the
+   `CONTRIBUTING.md` and `Makefile.toml` files.
 3. Update other files according to your project's needs (e.g. `Cargo.toml`, `README.md`,
    `CODEOWNERS`, etc).
 
@@ -28,7 +29,6 @@ This is a template repository. It comes with support for the following:
 * Unit testing
 * Code coverage analysis and "pretty" coverage reporting via
   [cargo-llvm-cov](https://github.com/taiki-e/cargo-llvm-cov)
-* Execution analysis of Undefined Behavior via [Miri](https://github.com/rust-lang/miri)
 * Orchestration of *all the above* via [cargo-make](https://github.com/sagiegurari/cargo-make)
 (see [CONTRIBUTING.md](CONTRIBUTING.md) for details)
 

@@ -20,4 +20,4 @@ exclude = ["/.github/*", "/Makefile.toml", "/clippy.toml", "/rustfmt.toml"]
 # If this is an end-user executable/application and not a library, it is recommended to use https://github.com/dtolnay/anyhow
 
 [dev-dependencies]
-mockito = "0.7.0"
+# mockito = "0.7.0" # Recommended for unit testing purposes
