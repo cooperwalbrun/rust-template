@@ -1,4 +1,4 @@
-# YOUR PROJECT NAME HERE ![master](https://github.com/cooperwalbrun/rust-template/workflows/master/badge.svg)
+# YOUR PROJECT NAME HERE ![master](https://github.com/cooperwalbrun/rust-template/workflows/master/badge.svg) [![codecov](https://codecov.io/gh/cooperwalbrun/rust-template/branch/master/graph/badge.svg?token=SFH1NL79H4)](https://codecov.io/gh/cooperwalbrun/rust-template)
 
 1. [Checklist](#checklist)
 2. [Overview](#overview)
