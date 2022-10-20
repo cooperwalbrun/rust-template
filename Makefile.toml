@@ -20,7 +20,7 @@ dependencies = ["lint"]
 watch = true
 
 ####################################################################################################
-############################## Non-Miri build/run/test-related tasks ###############################
+############################## Standard build/run/test-related tasks ###############################
 ####################################################################################################
 
 [tasks.clean]
@@ -54,6 +54,14 @@ install_crate = "cargo-llvm-cov"
 env = { RUST_BACKTRACE = 1 }
 command = "cargo"
 args = ["llvm-cov"]
+dependencies = ["build"]
+
+[tasks.test-coverage-ci]
+description = "Run code coverage analysis and write a report to a text file in LCOV format."
+install_crate = "cargo-llvm-cov"
+env = { RUST_BACKTRACE = 1 }
+command = "cargo"
+args = ["llvm-cov", "--lcov", "--output-path", "lcov.info"]
 dependencies = ["build"]
 
 ####################################################################################################
