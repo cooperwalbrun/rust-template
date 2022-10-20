@@ -82,7 +82,8 @@ description = "Fetch the Miri Rustup component and compile the source code for M
 install_crate = { rustup_component_name = "miri" }
 env = { CARGO_TARGET_DIR = "./target-miri" }
 command = "cargo"
-args = ["lint", "build"]
+args = ["build"]
+dependencies = ["lint"]
 
 [tasks.miri-run]
 description = "Run the application and analyze it with Miri."
