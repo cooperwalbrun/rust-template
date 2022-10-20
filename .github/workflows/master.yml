@@ -5,7 +5,7 @@ on:
       - master
 jobs:
   unit-test:
-    name: Unit Test and Code Coverage
+    name: Unit Test with Code Coverage Analysis
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source code
@@ -21,4 +21,9 @@ jobs:
       - name: Run the application
         run: cargo make run
       - name: Unit test with code coverage analysis
-        run: cargo make test-coverage
+        run: cargo make test-coverage-ci
+      - name: Upload test coverage report to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          fail_ci_if_error: true
+          files: lcov.info
