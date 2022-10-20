@@ -16,9 +16,6 @@ coverage.profdata
 /coverage/
 lcov.info
 
-# More information about Cargo.lock can be found here: https://doc.rust-lang.org/cargo/guide/cargo-toml-vs-cargo-lock.html
-Cargo.lock
-
 # Files specific to JetBrains IDEs
 .idea/
 *.iml

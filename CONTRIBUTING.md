@@ -7,9 +7,6 @@
 
 ## Development Workspace Setup
 
-This project currently depends on the Rust `nightly` toolchain in order to utilize
-[Miri](https://github.com/rust-lang/miri).
-
 The main facility used for interacting with this project's lifecycle (build/test/format/lint) is
 [cargo-make](https://sagiegurari.github.io/cargo-make). Therefore, this is the only dependency you
 need to install on your machine:
@@ -29,21 +26,14 @@ cargo make run              # Run the application
 cargo make test             # Run all unit tests
 cargo make test-coverage    # Run all unit tests and write a code coverage report to STDOUT
 cargo make test-coverage-ci # Run all unit tests and write a code coverage report to a text file in LCOV format
-cargo make miri-clean       # Clean up Miri-related temporary files
-cargo make miri-build       # Lint and build the project for Miri analysis
-cargo make miri-run         # Run the application and analyze it with Miri
-cargo make miri-test        # Run all unit tests and analyze them with Miri
 cargo make format           # Run rustfmt on every applicable file in the project
 cargo make lint             # Run rust-clippy on every applicable file in the project
 cargo make lint-watch       # Same as above, except execute indefinitely as a watcher (re-lint whenever files change)
 ```
 
-`cargo-make` will automatically fetch crates and toolchain components when needed as you run these
+`cargo-make` will automatically fetch crates and toolchain components when needed when you run these
 commands. Between this and what is defined in `Cargo.toml`, you should never need to issue a
 `cargo install` command unless you are installing new dependencies.
-
-Lastly, be aware that the first time you run either of the `miri-run` or `miri-test` commands, you
-will be prompted in your terminal to install some additional dependencies.
 
 ## Formatting and Linting Code
 
