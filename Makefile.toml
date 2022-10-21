@@ -1,8 +1,14 @@
 [tasks.format]
-description = "Format all source files."
+description = "Format all source files and write changes to them where possible."
 install_crate = { rustup_component_name = "rustfmt" }
 command = "cargo"
 args = ["fmt"]
+
+[tasks.format-ci]
+description = "Format all source files."
+install_crate = { rustup_component_name = "rustfmt" }
+command = "cargo"
+args = ["fmt", "--check"]
 
 [tasks.lint]
 description = "Lint all source files."

@@ -1,31 +1,28 @@
 # Documentation for the settings in this file can be found here: https://rust-lang.github.io/rustfmt
-# All settings are defined explicitly for resistance to defaults changing within rustfmt
+# All settings are defined explicitly for resistance to default changes within rustfmt
 
-# TODO - uncomment the settings in this file after upgrading to rustfmt v2.0.0
-
-# "edition" below should match the edition in Cargo.toml
 edition = "2021"
-unstable_features = true
 
-########################################
-#### Settings related to line width ####
-########################################
+######################################################################################
+########################### Settings related to line width ###########################
+######################################################################################
 
+# TODO - uncomment the line below after rustfmt v2.0.0 is released
 #width_heuristics = "Off" # We prefer to use the explicit values below
 max_width = 100
 
-#array_width = 60
-#attr_fn_like_width = 70
-#chain_width = 60
-#comment_width = 80
-#fn_call_width = 60
-#single_line_if_else_max_width = 50
-#struct_lit_width = 0
-#struct_variant_width = 35
+array_width = 60
+attr_fn_like_width = 70
+chain_width = 60
+comment_width = 80
+fn_call_width = 60
+single_line_if_else_max_width = 50
+struct_lit_width = 18
+struct_variant_width = 35
 
-########################################
-######## Miscellaneous settings ########
-########################################
+######################################################################################
+############################### Miscellaneous settings ###############################
+######################################################################################
 
 binop_separator = "Back"
 blank_lines_lower_bound = 0
@@ -36,12 +33,11 @@ condense_wildcard_suffixes = false
 control_brace_style = "AlwaysSameLine"
 empty_item_single_line = true
 enum_discrim_align_threshold = 0
-#fn_params_layout = "Tall"
-fn_single_line = false
+fn_args_layout = "Tall"
+fn_single_line = true
 force_explicit_abi = true
 force_multiline_blocks = false
 format_code_in_doc_comments = false
-#format_generated_files = false
 format_macro_bodies = true
 format_strings = true
 group_imports = "StdExternalCrate"
@@ -60,13 +56,12 @@ merge_imports = true
 newline_style = "Unix"
 normalize_comments = true
 normalize_doc_attributes = true
-#preserve_block_start_blank_lines = false
-#preserve_closure_block_wrapping = true
 overflow_delimited_expr = false
 remove_nested_parens = true
 reorder_impl_items = true
 reorder_imports = true
 reorder_modules = true
+struct_lit_single_line = true
 tab_spaces = 4
 trailing_comma = "Never"
 trailing_semicolon = true
@@ -76,9 +71,9 @@ use_try_shorthand = true
 where_single_line = true
 wrap_comments = true
 
-########################################
-###### Settings for rustfmt bugs #######
-########################################
+######################################################################################
+######################### Settings for rustfmt bug-handling ##########################
+######################################################################################
 
 error_on_line_overflow = true
 error_on_unformatted = true
