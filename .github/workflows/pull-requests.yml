@@ -22,6 +22,10 @@ jobs:
         uses: baptiste0928/cargo-install@v1
         with:
           crate: cargo-make
+      - name: Format check
+        run: cargo make format-ci
+      - name: Lint
+        run: cargo make lint
       - name: Unit test with code coverage analysis
         run: cargo make test-coverage-ci
       - name: Upload test coverage report to Codecov
