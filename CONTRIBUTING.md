@@ -29,7 +29,7 @@ cargo make test-coverage-ci # Run all unit tests and write a code coverage repor
 cargo make format           # Formats (rewrites) every applicable file in the project
 cargo make format-ci        # Formats (report only) every applicable file in the project
 cargo make lint             # Lints (report only) every applicable file in the project
-cargo make lint-watch       # Same as above, except execute indefinitely as a watcher (re-lint whenever files change)
+cargo make lint-watch       # Lints (report only) every applicable file in the project and re-lints whenever files change
 ```
 
 `cargo-make` will automatically fetch crates and toolchain components when needed when you run these
