@@ -41,7 +41,6 @@ dependencies = ["build"]
 
 [tasks.test]
 description = "Run all unit tests."
-env = { RUST_BACKTRACE = 1 }
 command = "cargo"
 args = ["test", "--tests"]
 dependencies = ["build"]
@@ -49,7 +48,6 @@ dependencies = ["build"]
 [tasks.test-coverage]
 description = "Run code coverage analysis and write a tabulated report to STDOUT."
 install_crate = "cargo-llvm-cov"
-env = { RUST_BACKTRACE = 1 }
 command = "cargo"
 args = ["llvm-cov"]
 dependencies = ["build"]
@@ -57,7 +55,6 @@ dependencies = ["build"]
 [tasks.test-coverage-ci]
 description = "Run code coverage analysis and write a report to a text file in LCOV format."
 install_crate = "cargo-llvm-cov"
-env = { RUST_BACKTRACE = 1 }
 command = "cargo"
 args = ["llvm-cov", "--lcov", "--output-path", "lcov.info"]
 dependencies = ["build"]
