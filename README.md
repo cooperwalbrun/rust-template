@@ -1,4 +1,4 @@
-# rust-template ![master](https://github.com/cooperwalbrun/rust-template/workflows/master/badge.svg) [![codecov](https://codecov.io/gh/cooperwalbrun/rust-template/branch/master/graph/badge.svg?token=SFH1NL79H4)](https://codecov.io/gh/cooperwalbrun/rust-template)
+# rust-template [![master](https://github.com/cooperwalbrun/rust-template/actions/workflows/master.yml/badge.svg)](https://github.com/cooperwalbrun/rust-template/actions/workflows/master.yml) [![codecov](https://codecov.io/gh/cooperwalbrun/rust-template/branch/master/graph/badge.svg?token=SFH1NL79H4)](https://codecov.io/gh/cooperwalbrun/rust-template)
 
 1. [Checklist](#checklist)
 2. [Overview](#overview)
@@ -29,7 +29,7 @@ This is a template repository. It comes with support for the following:
 * Unit testing
 * Code coverage analysis and "pretty" coverage reporting via
   [cargo-llvm-cov](https://github.com/taiki-e/cargo-llvm-cov)
-* Orchestration of *all the above* via [cargo-make](https://github.com/sagiegurari/cargo-make)
+* Orchestration of *all of the above* via [cargo-make](https://github.com/sagiegurari/cargo-make)
 (see [CONTRIBUTING.md](CONTRIBUTING.md) for details)
 
 This repository also includes other features which are not necessarily specific to Rust, but they
