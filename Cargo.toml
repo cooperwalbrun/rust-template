@@ -22,4 +22,4 @@ exclude = ["/.github/*", "/Makefile.toml", "/clippy.toml", "/rustfmt.toml"]
 #    CLI-based programs: https://github.com/yaahc/color-eyre
 
 [dev-dependencies]
-# mockito = "0.7.0" # Recommended for unit testing purposes
+# Add development- and/or testing-specific dependencies
