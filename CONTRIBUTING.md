@@ -32,7 +32,7 @@ cargo make lint             # Lints (report only) every applicable file in the p
 cargo make lint-watch       # Lints (report only) every applicable file in the project and re-lints whenever files change
 ```
 
-`cargo-make` will automatically fetch crates and toolchain components when needed when you run these
+`cargo-make` will automatically fetch crates and toolchain components as needed when you run these
 commands. Between this and what is defined in `Cargo.toml`, you should never need to issue a
 `cargo install` command unless you are installing new dependencies.
 
