@@ -18,9 +18,9 @@ jobs:
           override: true
           profile: minimal
       - name: Install cargo-make
-        uses: baptiste0928/cargo-install@v1
+        uses: davidB/rust-cargo-make@v1
         with:
-          crate: cargo-make
+          version: "latest"
       - name: Check for formatting issues
         run: cargo make format-ci
       - name: Check for linting issues
