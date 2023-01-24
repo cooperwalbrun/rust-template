@@ -1,17 +1,20 @@
 [tasks.format]
-description = "Format all source files and write changes to them where possible."
+description = "Format all source files."
+env = { CARGO_MAKE_RUST_DEFAULT_TOOLCHAIN = "stable" } # See: https://github.com/sagiegurari/cargo-make/discussions/767
 install_crate = { rustup_component_name = "rustfmt" }
 command = "cargo"
 args = ["fmt"]
 
 [tasks.format-ci]
-description = "Format all source files."
+description = "Check all source files for formatting issues."
+env = { CARGO_MAKE_RUST_DEFAULT_TOOLCHAIN = "stable" } # See: https://github.com/sagiegurari/cargo-make/discussions/767
 install_crate = { rustup_component_name = "rustfmt" }
 command = "cargo"
 args = ["fmt", "--check"]
 
 [tasks.lint]
 description = "Lint all source files."
+env = { CARGO_MAKE_RUST_DEFAULT_TOOLCHAIN = "stable" } # See: https://github.com/sagiegurari/cargo-make/discussions/767
 install_crate = { rustup_component_name = "clippy" }
 command = "cargo"
 args = ["clippy"]
@@ -47,6 +50,7 @@ dependencies = ["build"]
 
 [tasks.test-coverage]
 description = "Run code coverage analysis and write a tabulated report to STDOUT."
+env = { CARGO_MAKE_RUST_DEFAULT_TOOLCHAIN = "stable" } # See: https://github.com/sagiegurari/cargo-make/discussions/767
 install_crate = "cargo-llvm-cov"
 command = "cargo"
 args = ["llvm-cov"]
@@ -54,6 +58,7 @@ dependencies = ["build"]
 
 [tasks.test-coverage-ci]
 description = "Run code coverage analysis and write a report to a text file in LCOV format."
+env = { CARGO_MAKE_RUST_DEFAULT_TOOLCHAIN = "stable" } # See: https://github.com/sagiegurari/cargo-make/discussions/767
 install_crate = "cargo-llvm-cov"
 command = "cargo"
 args = ["llvm-cov", "--lcov", "--output-path", "lcov.info"]

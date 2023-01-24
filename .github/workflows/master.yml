@@ -18,17 +18,20 @@ jobs:
           override: true
           profile: minimal
       - name: Install cargo-make
-        uses: baptiste0928/cargo-install@v1
+        uses: davidB/rust-cargo-make@v1
         with:
-          crate: cargo-make
-      - name: Format check
+          version: "latest"
+      - name: Check for formatting issues
         run: cargo make format-ci
-      - name: Lint
+      - name: Check for linting issues
         run: cargo make lint
       - name: Unit test with code coverage analysis
         run: cargo make test-coverage-ci
       - name: Upload test coverage report to Codecov
         uses: codecov/codecov-action@v3
         with:
+          # We specify the token below to mitigate the impact of the bug mentioned here:
+          # https://community.codecov.com/t/upload-issues-unable-to-locate-build-via-github-actions-api/3954
+          token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: true
           files: lcov.info
