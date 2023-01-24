@@ -22,9 +22,9 @@ jobs:
         uses: baptiste0928/cargo-install@v1
         with:
           crate: cargo-make
-      - name: Format check
+      - name: Check for formatting issues
         run: cargo make format-ci
-      - name: Lint
+      - name: Check for linting issues
         run: cargo make lint
       - name: Unit test with code coverage analysis
         run: cargo make test-coverage-ci
