@@ -6,8 +6,8 @@
 
 ## Checklist
 
->Did you just clone this repository? Here is a checklist of things you should change before you get
->started developing!
+>Did you just clone this repository? Here is a checklist of things you should change before you
+>start developing!
 
 1. Delete the `Cargo.lock` file and add it to the the `.gitignore` file if your project will NOT be
    an executable binary. See
