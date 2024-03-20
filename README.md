@@ -9,10 +9,10 @@
 >Did you just clone this repository? Here is a checklist of things you should change before you
 >start developing!
 
-1. Delete the `Cargo.lock` file and add it to the the `.gitignore` file if your project will *not*
-   be an executable binary. See
-   [the Rust FAQs](https://doc.rust-lang.org/cargo/faq.html#why-do-binaries-have-cargolock-in-version-control-but-not-libraries)
-   for more information.
+1. Determine whether to delete the `Cargo.lock` file and add an entry for it to the `.gitignore`.
+   The decision to do this will depend on your project's dependency management needs. Refer to
+   [this section](https://doc.rust-lang.org/cargo/faq.html#why-have-cargolock-in-version-control) of
+   the Rust FAQs for more information about the benefits and drawbacks of making this change.
 2. Rename `src/main.rs` to `src/lib.rs` (and remove the `main` function) if your project will *not*
    be an executable binary. Likewise, be sure to remove all mentions of `run` command(s) from the
    `CONTRIBUTING.md` and `Makefile.toml` files.
