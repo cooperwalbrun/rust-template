@@ -3,7 +3,7 @@ name = "rust-template"
 edition = "2021"
 version = "0.1.0"
 rust-version = "1.76.0"
-authors = ["FirstName Lastname <email@domain.com>"]
+authors = ["FirstName LastName <email@domain.com>"]
 description = "A short description of your project."
 documentation = "https://github.com/cooperwalbrun/rust-template/blob/master/README.md"
 homepage = "https://github.com/cooperwalbrun/rust-template"
@@ -18,7 +18,7 @@ exclude = ["/.github/*", "/Makefile.toml", "/clippy.toml", "/rustfmt.toml"]
 [dependencies]
 # If this is a library and not an end-user application, it is recommended to use https://github.com/dtolnay/thiserror
 # If this is an end-user application and not a library, it is recommended to use one of the following:
-#    Non-CLI programs: https://github.com/dtolnay/anyhow
+#    Non-CLI-based programs: https://github.com/dtolnay/anyhow
 #    CLI-based programs: https://github.com/yaahc/color-eyre
 
 [dev-dependencies]

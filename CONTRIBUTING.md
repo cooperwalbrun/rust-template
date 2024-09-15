@@ -45,7 +45,7 @@ settings in [rustfmt.toml](rustfmt.toml).
 This project uses [rust-clippy](https://github.com/rust-lang/rust-clippy) to handle linting, and
 contributions are expected to be checked using the settings in [clippy.toml](clippy.toml).
 
->Note: `rustfmt` and `rust-clippy` each have many built-in defaults that will be deferred to in the
+>Note: `rustfmt` and `rust-clippy` each have many built-in defaults that will be used in the
 >absence of a corresponding rule in `rustfmt.toml`/`clippy.toml`.
 
 ## Code Policy
