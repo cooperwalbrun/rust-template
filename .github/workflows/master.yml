@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Set up the Rust toolchain
         uses: dtolnay/rust-toolchain@stable
         with:
@@ -25,7 +25,7 @@ jobs:
       - name: Unit test with code coverage analysis
         run: cargo make test-coverage-ci
       - name: Upload test coverage report to Codecov
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: true

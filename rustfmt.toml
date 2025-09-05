@@ -2,7 +2,7 @@
 # In this file, all available rustfmt settings are defined explicitly so that this project is
 # resistant to changes to defaults within rustfmt
 
-edition = "2021"
+edition = "2024"
 
 ####################################################################################################
 ################################## Settings related to line width ##################################
