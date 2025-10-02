@@ -19,19 +19,19 @@ cargo install cargo-make
 
 With `cargo-make`, all of this project's commands will become available to you:
 
-```bash
-cargo make clean             # Clean up temporary files
-cargo make build             # Lint and build the project
-cargo make run               # Run the application
-cargo make test              # Run all unit tests
-cargo make test-coverage     # Run all unit tests and write a code coverage report to STDOUT
-cargo make test-coverage-ci  # Run all unit tests and write a code coverage report to a text file in LCOV format
-cargo make format            # Format (rewrite) every applicable file in the project
-cargo make format-ci         # Format (report only) every applicable file in the project
-cargo make lint              # Lint (report only) every applicable file in the project
-cargo make lint-watch        # Lint (report only) every applicable file in the project and re-lints whenever files change
-cargo make dependency-report # Show outdated dependencies in the project, if any
-```
+| Command                        | Description/Function                                                                       |
+|--------------------------------|--------------------------------------------------------------------------------------------|
+| `cargo make clean`             | Clean up temporary files                                                                   |
+| `cargo make build`             | Lint and build the project                                                                 |
+| `cargo make run`               | Run the application                                                                        |
+| `cargo make test`              | Run all unit tests                                                                         |
+| `cargo make test-coverage`     | Run all unit tests and write a code coverage report to STDOUT                              |
+| `cargo make test-coverage-ci`  | Run all unit tests and write a code coverage report to a text file in LCOV format          |
+| `cargo make format`            | Format (rewrite) every applicable file in the project                                      |
+| `cargo make format-ci`         | Format (report only) every applicable file in the project                                  |
+| `cargo make lint`              | Lint (report only) every applicable file in the project                                    |
+| `cargo make lint-watch`        | Lint (report only) every applicable file in the project and re-lints whenever files change |
+| `cargo make dependency-report` | Show outdated dependencies in the project, if any                                          |
 
 `cargo-make` will automatically fetch crates and toolchain components as needed when you run these
 commands. Between this and what is defined in `Cargo.toml`, you should never need to issue a
