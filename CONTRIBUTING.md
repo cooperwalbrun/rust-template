@@ -31,7 +31,7 @@ With `cargo-make`, all of this project's commands will become available to you:
 | `cargo make format-ci`         | Format (report only) every applicable file in the project                                  |
 | `cargo make lint`              | Lint (report only) every applicable file in the project                                    |
 | `cargo make lint-watch`        | Lint (report only) every applicable file in the project and re-lints whenever files change |
-| `cargo make dependency-report` | Show outdated dependencies in the project, if any                                          |
+| `cargo make outdated`          | Write a summary of outdated dependencies to STDOUT                                         |
 
 `cargo-make` will automatically fetch crates and toolchain components as needed when you run these
 commands. Between this and what is defined in `Cargo.toml`, you should never need to issue a
