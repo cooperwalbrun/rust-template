@@ -1,3 +1,10 @@
+[tasks.dependency-report]
+description = "Show outdated dependency versions."
+env = { CARGO_MAKE_RUST_DEFAULT_TOOLCHAIN = "stable" } # See: https://github.com/sagiegurari/cargo-make/discussions/767
+install_crate = "cargo-outdated"
+command = "cargo"
+args = ["outdated", "--root-deps-only"]
+
 [tasks.format]
 description = "Format all source files."
 env = { CARGO_MAKE_RUST_DEFAULT_TOOLCHAIN = "stable" } # See: https://github.com/sagiegurari/cargo-make/discussions/767
