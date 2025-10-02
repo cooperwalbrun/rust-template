@@ -2,7 +2,7 @@
 name = "rust-template"
 edition = "2024"
 version = "0.1.0"
-rust-version = "1.89.0"
+rust-version = "1.90.0"
 authors = ["FirstName LastName <email@domain.com>"]
 description = "A short description of your project."
 documentation = "https://github.com/cooperwalbrun/rust-template/blob/master/README.md"
