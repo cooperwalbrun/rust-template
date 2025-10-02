@@ -1,5 +1,5 @@
-[tasks.dependency-report]
-description = "Show outdated dependency versions."
+[tasks.outdated]
+description = "Write a summary of outdated dependencies to STDOUT."
 env = { CARGO_MAKE_RUST_DEFAULT_TOOLCHAIN = "stable" } # See: https://github.com/sagiegurari/cargo-make/discussions/767
 install_crate = "cargo-outdated"
 command = "cargo"
