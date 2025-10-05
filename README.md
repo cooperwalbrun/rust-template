@@ -29,6 +29,7 @@ This is a template repository. It comes with support for the following:
 * Unit testing
 * Code coverage analysis and "pretty" coverage reporting via
   [cargo-llvm-cov](https://github.com/taiki-e/cargo-llvm-cov)
+* Outdated dependency reporting via [cargo-outdated](https://github.com/kbknapp/cargo-outdated)
 * Orchestration of *all of the above* via [cargo-make](https://github.com/sagiegurari/cargo-make)
 (see [CONTRIBUTING.md](CONTRIBUTING.md) for details)
 
