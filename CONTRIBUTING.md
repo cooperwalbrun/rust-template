@@ -9,7 +9,7 @@
 
 The main facility used for interacting with this project's lifecycle (build/test/format/lint) is
 [cargo-make](https://sagiegurari.github.io/cargo-make). Therefore, this is the only dependency you
-need to install on your machine:
+need to install on your machine in order to make all of this project's commands available to you:
 
 ```bash
 cargo install cargo-make
@@ -17,25 +17,23 @@ cargo install cargo-make
 
 ## Commands
 
-With `cargo-make`, all of this project's commands will become available to you:
+>Note: `cargo-make` will automatically fetch crates and toolchain components on an as-needed basis
+>when you run these commands. Given this behavior, you should never need to issue a `cargo install`
+>command unless you are installing new dependencies.
 
-| Command                        | Description/Function                                                                       |
-|--------------------------------|--------------------------------------------------------------------------------------------|
-| `cargo make clean`             | Clean up temporary files                                                                   |
-| `cargo make build`             | Lint and build the project                                                                 |
-| `cargo make run`               | Run the application                                                                        |
-| `cargo make test`              | Run all unit tests                                                                         |
-| `cargo make test-coverage`     | Run all unit tests and write a code coverage report to STDOUT                              |
-| `cargo make test-coverage-ci`  | Run all unit tests and write a code coverage report to a text file in LCOV format          |
-| `cargo make format`            | Format (rewrite) every applicable file in the project                                      |
-| `cargo make format-ci`         | Format (report only) every applicable file in the project                                  |
-| `cargo make lint`              | Lint (report only) every applicable file in the project                                    |
-| `cargo make lint-watch`        | Lint (report only) every applicable file in the project and re-lints whenever files change |
-| `cargo make outdated`          | Write a summary of outdated dependencies to STDOUT                                         |
-
-`cargo-make` will automatically fetch crates and toolchain components as needed when you run these
-commands. Between this and what is defined in `Cargo.toml`, you should never need to issue a
-`cargo install` command unless you are installing new dependencies.
+| Command                       | Description/Function                                                                      |
+|-------------------------------|-------------------------------------------------------------------------------------------|
+| `cargo make clean`            | Clean up temporary files                                                                  |
+| `cargo make build`            | Lint and build the project                                                                |
+| `cargo make run`              | Run the application                                                                       |
+| `cargo make test`             | Run all unit tests                                                                        |
+| `cargo make test-coverage`    | Run all unit tests and write a code coverage report to STDOUT                             |
+| `cargo make test-coverage-ci` | Run all unit tests and write a code coverage report to a text file in LCOV format         |
+| `cargo make format`           | Format (rewrite) every applicable file in the project                                     |
+| `cargo make format-ci`        | Format (report only) every applicable file in the project                                 |
+| `cargo make lint`             | Lint (report only) every applicable file in the project                                   |
+| `cargo make lint-watch`       | Lint (report only) every applicable file in the project and re-lint whenever files change |
+| `cargo make outdated`         | Write a summary of outdated dependencies to STDOUT                                        |
 
 ## Formatting and Linting Code
 

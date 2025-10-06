@@ -27,7 +27,7 @@ command = "cargo"
 args = ["clippy"]
 
 [tasks.lint-watch]
-description = "Monitor and lint all source files continuously anytime one of them changes."
+description = "Monitor all source files and lint the ones that change in real-time."
 dependencies = ["lint"]
 watch = true
 
