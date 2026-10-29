@@ -9,15 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: Set up the Rust toolchain
         uses: dtolnay/rust-toolchain@stable
         with:
           toolchain: stable
       - name: Install cargo-make
-        uses: davidB/rust-cargo-make@v1
+        uses: taiki-e/install-action@v2
         with:
-          version: latest
+          tool: cargo-make
       - name: Check for formatting issues
         run: cargo make format-ci
       - name: Check for linting issues
@@ -25,7 +25,7 @@ jobs:
       - name: Unit test with code coverage analysis
         run: cargo make test-coverage-ci
       - name: Upload test coverage report to Codecov
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v7
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: true

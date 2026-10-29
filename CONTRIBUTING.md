@@ -50,5 +50,5 @@ contributions are expected to be checked using the settings in [clippy.toml](./c
 ## Code Policy
 
 Code contributed to this project should follow the
-[Rust API Guidelines](https://rust-lang.github.io/api-guidelines/checklist.html) as much as
-possible (even if this project is an application rather than a library).
+[Rust API Guidelines](https://rust-lang.github.io/api-guidelines/checklist.html) as much as possible
+(even if this project is an application rather than a library).
